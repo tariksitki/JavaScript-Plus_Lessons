@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <!-- Belge Nesne Modeli (DOM), HTML ve XML (Genişletilebilir biçimlendirme dili) belgeleri için bir programlama arabirimidir. Belgelerin mantıksal yapısını ve bir belgeye nasıl erişildiğini ve değiştirildiğini tanımlar. -->
+
+
+    <!-- DOM, programcıların ve kullanıcıların belgede gezinmesini kolaylaştırmak için web sayfasını yapılandırılmış hiyerarşik bir şekilde temsil etmenin bir yoludur.
+
+
+    Belge Nesne Modeli (DOM) adı verilen matematiksel bir ağaç yapısı, her web sayfasına bölünebilir.
+
+    Belge Nesne Modeli, belgeler için bir programlama API'sidir. Nesne modeli, belge modellerinin düzeniyle aynıdır.
+
+    Document Object Model, ayni html deki table yapisi gibi hiyerarsik yapiya sahiptir. 
+    table 
+        tr 
+            td 
+                "John"   gibi  -->
+
+    
+
+
+    
+
+
+
+    <!-- Node :
+    The nodes in the node tree have a hierarchical relationship to each other.
+
+    In a node tree, the top node is called the root.
+
+    Root hariç her node un tam olarak bir ana node u vardır.
+
+    A node can have any number of children.
+
+    A leaf is a node with no children.
+
+    Siblings are nodes with the same parent
+    (ebeveynleri ayni olanlara siblings deniyor)
+
+
+    The <html> node has two child nodes; <head> and <body>
+
+    The <head> node has one child node; the <title> node
+
+    The <title> node also has one child node; the text node "DOM Tutorial"
+
+    The <h1> and <p> nodes are siblings, and both child nodes of <body> -->
+
+
+    <!-- Örnek yapi :
+
+    <!doctype html>
+<html lang="en">
+ <head>
+   <title>Clarusway</title>
+  </head>
+ <body>
+    <h1>Hello, world!</h1>
+    <p>Clarusway</p>
+  </body>
+</html> -->
+
+
+
+<!-- The root node in the HTML above is <html>
+➤ All other nodes in the document are contained within <html>.
+
+The <html> node has two child nodes:
+
+● <head>
+● <body>
+
+The <head> node holds a <title> node.
+
+The <body> node holds:
+
+● <h1>
+
+● <p> -->
+
+
+
+
+
+    <!-- The DOM Objects/ Elements and Methods
+
+    document : The root of the page.
+document.links, document.height
+
+    elements : A Node in tree. (mesela HTML, Body, Title bunlar birer element)
+
+    nodelist : A group of elements
+
+document.getElementByTagName('h1')
+
+
+    atribute : A node in the DOM. -->
+
+
+
+    <!-- write(“string”)	writes the given string on the document
+
+
+    getElementById()	returns the element having the given id value. Find an element by element id -->
+
+    <p id="p1">Hello World</p>
+
+
+    <script>
+        
+        const myElement = document.getElementById("p1");
+
+        myElement.style.color = "red";
+        myElement.style.backgroundColor = "blue";
+
+
+        //  The getElementById() method returns an element with a specified value.
+
+        // The getElementById() method returns null if the element does not exist.
+
+        myElement1 = document.getElementById("p");
+
+        console.log(myElement1); // null
+
+
+
+
+    //     Note
+    // Any id should be unique, but:
+
+    // If two or more elements with the same id exist, getElementById() returns the first.
+
+
+
+    /// Birde su yöntemler vardir 
+
+    // The Document getElementsByTagName() Method
+
+    // The Document getElementsByClassName() Method
+    </script>
+
+
+
+    <h2>Get Element By Tag Name</h2>
+    <h2>Get Element By Tag Name</h2>
+    <h2>Get Element By Tag Name</h2>
+    <h2>Get Element By Tag Name</h2>
+
+    <script>
+
+        document.getElementsByTagName("h2")[2].innerHTML = "Hello";
+
+        /// [] icerisinde kac yazarsak onun html de icerigini degistirir
+        /// getelementbytagname sadece read-only dir diyor
+
+        // getElementsByTagName("*") returns all elements in the document.
+
+    </script>
+
+
+
+    <!-- getElementsByName()	returns all the elements having the given name value -->
+
+    <input type="text" name="animal">
+    <input type="text" name="animal">
+    <input type="text" name="animal">
+    <input type="text" name="animal">
+
+    <script>
+        length1 = document.getElementsByName("animal").length;
+
+        console.log(length1);
+
+        ///  inputlara verdigimiz name isimleri ile onlara ulastik ve length ile kac adaet input oldugunu ögrendik 
+
+    </script>
+
+
+
+    <!-- getElementsByClassName()	returns all the elements having the given class name -->
+
+
+    <p class="p2" id="p2">Get Element By Class</p>
+    <p class="p2" id="p2">Get Element By Class</p>
+    <p class="p2" id="p2">Get Element By Class</p>
+    <p class="p2" id="p2">Get Element By Class</p>
+
+
+    <script>
+
+        const myClass = document.getElementById("p2");
+
+        myClass.style.backgroundColor = "red";
+
+        ///  name ve class ile dökümana ulastigimizda style özellikleri cikarmiyor
+
+        ///  burada da id ile ulastik ve sadece ilk olanin rengi degisti
+    </script>
+
+
+
+    <!-- innerHTML :
+    Bir HTML öğesinin içindeki içeriğe yazma amacıyla erişmenin bir yolu -->
+
+    
+    <!-- document.forms: 
+    basically acessing the "forms" collection of the document object -->
+
+
+    <!-- Finding Elements
+
+document.getElementById(id) : Find an element by element id
+document.getElementsByTagName(name): Find elements by tag name
+document.getElementsByClassName(name): Find elements by class name -->
+
+
+<!-- Changing Elements
+
+element.innerHTML: Change the inner HTML of an element
+element.attribute: Change the attribute value of an HTML element -->
+
+<!-- Adding and Deleting Elements
+
+document.createElement(element) : Create an HTML element
+document.removeChild(element): Remove an HTML element
+document.appendChild(element): Add an HTML element
+document.replaceChild(new, old) : Replace an HTML element
+document.write(text) : Write into the HTML output stream -->
+
+
+<!-- Example
+
+In this example changes the content (the innerHTML) of the <p> element with id="object":
+
+
+    <html>
+        <body>
+           <p id="object"></p>
+           <script>
+            document.getElementById("object").innerHTML = "Hello World!";
+           </script>
+        </body>
+      </html> -->
+
+
+
+      <!-- This example finds the element with id="demo", and then finds all <p> elements inside "demo": -->
+
+        <!-- <html>
+  <body>
+      <h1>Clarusway</h1>
+      <div id="demo">
+          <p>Hello Clarusway</p>
+          <p>Document Object Model (DOM)</p>
+      </div>
+      <p id="DOM"></p>
+    <script>
+      var x = document.getElementById("demo");
+      var y = x.getElementsByTagName("p");
+      document.getElementById("demo").innerHTML = 
+'The first paragraph inside is: ' + y[0].innerHTML;
+    </script>
+  </body>
+</html> -->
+
+</body>
+</html>
