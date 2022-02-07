@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+    <script>
+
+        /////   events:
+
+// ● onabort - Loading of an image is interrupted
+
+// ● onblur - An element loses focus
+
+// ● onchange - The content of a field changes
+
+// ● onclick - Mouse clicks an object
+
+// ● ondblclick - Mouse double-clicks an object
+
+// ● onerror - An error occurs when loading a document or an image
+
+// ● onfocus - An element gets focus
+
+// ● onkeydown - A keyboard key is pressed
+
+// ● onkeypress - A keyboard key is pressed or held down
+
+// ● onkeyup - A keyboard key is released
+
+// ● onload - A page or an image is finished loading
+
+// ● onmousedown - A mouse button is pressed
+
+// ● onmousemove - The mouse is moved
+
+// ● onmouseout - The mouse is moved off an element
+
+// ● onmouseover - The mouse is moved over an element
+
+// ● onmouseup - A mouse button is released
+
+// ● onreset - The reset button is clicked
+
+// ● onresize - A window or frame is resized
+
+// ● onselect - Text is selected
+
+// ● onsubmit - The submit button is clicked
+
+// ● onunload - The user exits the page
+
+
+        // Event Handlers
+
+        // On the occurrence of an event, the application executes a set of related tasks. The block of code that achieves this purpose is called the eventhandler.
+        // yani event handler, örnegin bizim mausa tiklandiginda calismasini istedigimiz ve öncelikle tanimladigimiz func dir. bu func in ismini biz html de onclick icerisine yazariz ve bizim istedigimiz olaylari gerceklestirir. bu nedenle buna event handler denir
+
+
+
+
+        //  onclick
+
+
+        function sayHello() {
+            alert("Hello World");
+        }
+
+
+    </script>
+
+
+    <p>Click the following button and see result</p>
+
+    <input type="button" onclick="sayHello()" value="Say Hello">
+
+
+
+
+    <script>
+
+        // onsubmit::
+
+        // ➤ onsubmit , bir form göndermeye çalıştığınızda meydana gelen bir olaydır. Form doğrulamanızı bu olay türüne karşı koyabilirsiniz.
+
+        // ➤ Aşağıdaki örnek, onsubmit'in nasıl kullanılacağını gösterir. Burada, web sunucusuna bir form verisi göndermeden önce bir validate() işlevi çağırıyoruz. validate() işlevi true değerini döndürürse, form gönderilir, aksi takdirde verileri göndermez.
+
+
+
+
+
+
+
+
+        /// onmouseover and onmouseout Event Type:
+
+        // Bu iki olay türü, resimlerle ve hatta metinlerle güzel efektler oluşturmanıza yardımcı olacaktır. Farenizi herhangi bir öğenin üzerine getirdiğinizde onmouseover olayı tetiklenir ve farenizi o öğeden dışarı çıkardığınızda onmouseout tetiklenir.
+
+
+
+        function over() {
+            return document.write("Mouse Over");
+        }
+
+        function out() {
+            return document.write("Mouse Out");
+        }
+
+    </script>
+
+        <p>Bring your mouse inside the division to see the result:</p>
+
+        <div onmouseover="over()" onmouseout="out()" style="width: 280px; background-color: brown;">
+            <h2>
+                This is inside the division
+            <h2>
+        </div>
+
+
+
+
+
+
+        <script>
+
+
+
+            /// Unobtrusive JavaScript
+
+// ➤ Daha önce görülen JavaScript olay kodu HTML'de rahatsız ediciydi; bu kötü tarz
+
+// ➤ Şimdi göze batmayan JavaScript kodunun nasıl yazılacağını göreceğiz
+
+// ● Etiketlerin içinde JavaScript kodu olmayan HTML
+
+// ● tüm JavaScript olay işleyicilerini eklemek ve yürütmek için JS DOM'yi kullanır
+
+
+
+            /// Obtrusive event handlers (bad)
+
+    /// <input type="button" onclick="sayHello()" value="Say Hello" />
+
+    // ➤ This is bad style (HTML is cluttered with JS code)
+
+    // ➤ Goal: remove all JavaScript code from the HTML body
+
+
+
+        </script>
+
+
+
+        <button id="ok">OK</button>
+
+
+
+        <script>
+            function okClick() {
+                alert("You clicked me!!!");
+            } 
+
+
+            const okButton = document.getElementById("ok");
+            okButton.onclick = okClick;
+
+            /// not: en son satirda okClick yanina ()  yaparsak, func i direkt cagirmis oluyoruz. ve sayfa her yenilendiginde, direkt olarak alert calisir
+
+
+            // JavaScript kodunuzdaki öğelerin DOM nesnelerine func işleyicileri eklemek yasaldır. This is better style than attaching them in the HTML
+
+
+//Event names are all lowercase, not capitalized like most variables
+
+//window.onLoad = pageLoad; // onLoad is wrong
+
+//window.onload = pageLoad; // onload is correct
+
+
+        ///  alert gibi funclari doğrudan cagiramayiz; kendi func ininiza dahil etmelisiniz
+
+// ok.onclick = alert("booyah"); // This is wrong Calling functions is not allowed. We have to assign a function name. No function calling directly.
+
+// ok.onclick = okClick; // This is correct
+
+// function okClick() { alert("You clicked me..."); }
+
+// Yukarida anlatilan hatali sekilde, yani direkt olarak button id si karsisina alert("hello") yazarsak, bu durumda yine sayfamiz her yenilendiginde, direkt olarak alert cikacaktir tiklamaya ihtiyac kalmadan
+
+
+
+
+
+
+
+
+
+    //  You can also remove event handlers that have been attached with the addEventListener() method:
+
+
+        </script>
+
+
+
+
+
+
+
+        <script>
+
+            // Event Listeners (dinleyiciler)
+
+
+            // On the occurrence of an event, the application executes a set of related tasks. The block of code that achieves this purpose is called the eventhandler.
+
+    ///  syntax:
+
+    // element.addEventListener(event, eventHandler);
+    // yani islem yapmak istedigimiz elementi sec
+    // bu elemente listener ekle
+    // hangi event i yapmak istiyoruz
+    //  ve bu eventi yapacak func bloku yani handler
+
+// const okButton = document.getElementById('ok');
+
+// okButton.addEventListener('click', function1); 
+// We attached function1 to okButton to be called when it is clicked.
+
+// okButton.addEventListener('click', function2); 
+// We attached another function to okButton to be called when it is **clicked** again. 
+// When button clicked, both functions will be called.
+
+// okButton.addEventListener('keyup', function3); 
+// we attached another function for a different event.
+
+        </script>
+
+
+
+
+
+        <script>
+
+
+    // You can also remove event handlers that have been attached with the addEventListener() method:
+
+    // syntax:
+
+    // element.removeEventListener(event, eventHandler)
+
+// const okButton = document.getElementById('ok');
+// okButton.addEventListener('click', function1); 
+// okButton.addEventListener('click', function2); 
+// okButton.addEventListener('keyup', function3); 
+
+// This removes the second eventListener for 'click'
+// okButton.removeEventListener('click', function2);
+
+
+
+
+        </script>
+
+
+
+        <!-- Youtube video  -->
+
+        <p id="title">Title</p>
+
+        <p id="title2">Title2</p>
+
+        <button id="button">Click me</button>
+
+        <style>
+            .change {
+                background-color: red;
+                font-size: 40px;
+            }
+
+        </style>
+
+        <script>
+            title = document.getElementById("title");
+            title2 = document.getElementById("title2");
+            button = document.getElementById("button");
+
+            title.classList.add("change");
+
+
+
+
+            button.addEventListener("click", function(){
+                // title2.classList.add("change");
+                title2.classList.toggle("change");
+                // toggle in add den farki, ilk tiklamada 
+                // islem gerceklesir ikinci tiklamada geri gelir
+            })
+
+        </script>
+
+
+
+            <ul class="name-list">
+                <li>Ed</li>
+                <li>John</li>
+                <li>Joe</li>
+                <li>Boy</li>
+                <li>Harry</li>
+
+            
+            </ul>
+
+
+            <script>
+                const userList = document.querySelectorAll(".name-list li");
+                console.log(userList);
+
+                // for(user of userList) {
+                //     user.addEventListener("click", function(){
+                //         console.log(this);
+                //     })
+                // }
+
+                for(user of userList) {
+                    user.addEventListener("click", function(){
+                        this.style.color = "red";
+                    })
+                }
+
+                // const listInput = document.querySelector(".list-input");
+
+
+            </script>
+
+
+            <button id="button2">Button2</button>
+            <p id="button2-p">Button2-p</p>
+            <style>
+                .change2 {
+                    color: red;
+
+                }
+            </style>
+
+
+            <script>
+                button2 = document.getElementById("button2");
+                button2_p = document.getElementById("button2-p");
+                    
+                    /// birinci yöntem:
+                // button2.addEventListener("click", function(){
+                //     button2_p.classList.toggle("change2");
+                // })
+
+                    /// 2. method:
+
+                function button2_func() {
+                    button2_p.classList.toggle("change2");
+
+                }
+
+                button2.addEventListener("click", button2_func);
+            </script>
+
+
+
+                <ul class="name-list2">
+                <li>Ed</li>
+                <li>John</li>
+                <li>Joe</li>
+                <li>Boy</li>
+                <li>Harry</li>
+
+                <input class="list-input"  type="text">
+
+                <button class="addListButton">Add List</button>
+
+
+                <script>
+                    const userList2 = document.querySelector(".name-list2");
+                    const listInput = document.querySelector(".list-input");
+                    const addListButton = document.querySelector(".addListButton");
+
+
+                    addListButton.addEventListener("click", function(){
+
+                                // /// create an li out of thin air
+                            newLi = document.createElement("li");
+                            liContent = document.createTextNode(listInput.value);
+                            console.log(liContent);
+
+                                // add the input value inside that new li
+
+                            newLi.appendChild(liContent);
+
+                                //  attaching the li to the user list
+                            userList2.appendChild(newLi);
+
+                        })
+                    
+
+
+                    // belgelerin mantıksal yapısını ve bir belgeye nasıl erişildiğini ve değiştirildiğini tanımlar.
+
+                    // Assume that we have an HTML document which includes a <div> element that in turn contains a <h1> element. In DOM terms, how is this relationship between the elements called?
+                    // parent - child
+
+                </script>
+
+</body>
+</html>
